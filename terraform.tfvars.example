@@ -5,4 +5,4 @@ desired_count   = 2
 nat_gateway_mode = "single"
 autoscaling_min_capacity = 2
 autoscaling_max_capacity = 4
-github_repo = "your-github-org/hello-fargate"
+github_repo = "drggtm/fargate"
