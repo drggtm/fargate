@@ -1,0 +1,8 @@
+project_name    = "hello-fargate"
+aws_region      = "us-east-1"
+container_image = "xxxx.dkr.ecr.us-east-1.amazonaws.com/hello-fargate-app:latest"
+desired_count   = 2
+nat_gateway_mode = "single"
+autoscaling_min_capacity = 2
+autoscaling_max_capacity = 4
+github_repo = "your-github-org/hello-fargate"

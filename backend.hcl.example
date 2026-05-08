@@ -1,0 +1,4 @@
+# Fill these values after bootstrapping the backend bucket in s3-backend/.
+bucket  = "terraform-states-123456789012-us-east-1"
+region  = "us-east-1"
+profile = "your-aws-profile"
