@@ -83,6 +83,18 @@ module "alb" {
   health_check_path     = var.health_check_path
 }
 
+module "vpc_endpoints" {
+  count  = var.enable_vpc_endpoints ? 1 : 0
+  source = "./modules/vpc_endpoints"
+
+  name_prefix             = local.name_prefix
+  vpc_id                  = module.vpc.vpc_id
+  vpc_cidr                = module.vpc.vpc_cidr
+  private_subnet_ids      = module.vpc.private_subnet_ids
+  private_route_table_ids = module.vpc.private_route_table_ids
+  aws_region              = var.aws_region
+}
+
 module "ecs_service" {
   source = "./modules/ecs_service"
 

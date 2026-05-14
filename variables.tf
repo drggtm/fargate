@@ -90,3 +90,9 @@ variable "github_repo" {
   type        = string
   default     = "drggtm/fargate"
 }
+
+variable "enable_vpc_endpoints" {
+  description = "Create interface endpoints (ECR, Secrets Manager, CloudWatch Logs) and an S3 gateway endpoint to reduce NAT traffic."
+  type        = bool
+  default     = true
+}
