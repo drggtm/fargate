@@ -88,5 +88,5 @@ variable "log_retention_in_days" {
 variable "github_repo" {
   description = "GitHub repository allowed to assume the CI deployment role"
   type        = string
-  default     = "drggtm/hello-world"
+  default     = "drggtm/fargate"
 }
