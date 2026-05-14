@@ -57,3 +57,8 @@ output "private_subnet_ids" {
   description = "Private subnet IDs used by the ECS tasks."
   value       = module.vpc.private_subnet_ids
 }
+
+output "waf_web_acl_arn" {
+  description = "ARN of the WAFv2 Web ACL associated with the ALB, if enabled."
+  value       = try(module.waf[0].web_acl_arn, null)
+}

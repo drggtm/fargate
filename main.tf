@@ -83,6 +83,15 @@ module "alb" {
   health_check_path     = var.health_check_path
 }
 
+module "waf" {
+  count  = var.enable_waf ? 1 : 0
+  source = "./modules/waf"
+
+  name_prefix           = local.name_prefix
+  alb_arn               = module.alb.alb_arn
+  log_retention_in_days = var.log_retention_in_days
+}
+
 module "ecs_service" {
   source = "./modules/ecs_service"
 

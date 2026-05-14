@@ -90,3 +90,9 @@ variable "github_repo" {
   type        = string
   default     = "drggtm/fargate"
 }
+
+variable "enable_waf" {
+  description = "Attach an AWS WAFv2 Web ACL with managed rule groups to the ALB."
+  type        = bool
+  default     = true
+}
