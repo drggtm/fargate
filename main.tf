@@ -105,3 +105,16 @@ module "ecs_service" {
 
   depends_on = [module.alb]
 }
+
+module "alarms" {
+  count  = var.enable_alarms ? 1 : 0
+  source = "./modules/alarms"
+
+  name_prefix             = local.name_prefix
+  alb_arn_suffix          = module.alb.alb_arn_suffix
+  target_group_arn_suffix = module.alb.target_group_arn_suffix
+  ecs_cluster_name        = module.ecs_service.cluster_name
+  ecs_service_name        = module.ecs_service.service_name
+  desired_count           = var.desired_count
+  alarm_email_addresses   = var.alarm_email_addresses
+}

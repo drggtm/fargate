@@ -57,3 +57,8 @@ output "private_subnet_ids" {
   description = "Private subnet IDs used by the ECS tasks."
   value       = module.vpc.private_subnet_ids
 }
+
+output "alarms_sns_topic_arn" {
+  description = "SNS topic that receives CloudWatch alarm notifications, if alarms are enabled."
+  value       = try(module.alarms[0].sns_topic_arn, null)
+}
