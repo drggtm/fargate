@@ -90,3 +90,15 @@ variable "github_repo" {
   type        = string
   default     = "drggtm/fargate"
 }
+
+variable "enable_alarms" {
+  description = "Create CloudWatch alarms (ALB 5xx, unhealthy targets, ECS task drops) and an SNS notification topic."
+  type        = bool
+  default     = true
+}
+
+variable "alarm_email_addresses" {
+  description = "Email addresses subscribed to the alarm SNS topic. Each address must confirm the subscription via email before it receives notifications."
+  type        = list(string)
+  default     = []
+}
